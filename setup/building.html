@@ -134,24 +134,41 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="building-the-template"><a class="header" href="#building-the-template">Building the template</a></h1>
-<p>By the end of this section, you should be able to build and run the <strong>agb</strong> template.</p>
-<h1 id="1-get-the-source-code"><a class="header" href="#1-get-the-source-code">1. Get the source code</a></h1>
-<p>The source code can be fetched using <code>git clone https://github.com/agbrs/template.git</code>.</p>
-<h1 id="2-build-the-template"><a class="header" href="#2-build-the-template">2. Build the template</a></h1>
-<p>Build a copy of the template using <code>cargo build --release</code>.
-This could take quite a while, but eventually you'll end up with a copy of the template in <code>target/thumbv4t-none-eabi/release/template</code> or <code>target/thumbv4t-none-eabi/release/template.elf</code> depending on platform.</p>
-<p>This can be run directly by some emulators, but we need to run an extra step in order to convert the elf file into a '.gba' file.</p>
-<pre><code class="language-sh">arm-none-eabi-objcopy -O binary target/thumbv4t-none-eabi/release/template template.gba
-gbafix template.gba
+                        <h1 id="building-and-running-the-agb-template"><a class="header" href="#building-and-running-the-agb-template">Building and running the agb template</a></h1>
+<p>In this section, you will learn how to build and run the agb template.
+By the end of this section, you will have a working GBA game that you can run on your emulator of choice.</p>
+<h2 id="1-clone-the-repository"><a class="header" href="#1-clone-the-repository">1. Clone the repository</a></h2>
+<p>The first step is to clone the agb template repository using Git.
+Open a terminal or command prompt and run the following command:</p>
+<pre><code class="language-sh">git clone https://github.com/agbrs/template.git
+</code></pre>
+<p>This will create a copy of the agb template repository on your local machine.</p>
+<h2 id="2-build-the-template"><a class="header" href="#2-build-the-template">2. Build the template</a></h2>
+<p>Next, navigate to the <code>template</code> directory in the repository and build the template using the following command:</p>
+<pre><code class="language-sh">cd template
+cargo build --release
+</code></pre>
+<p>This command will compile the agb template in release mode.
+The resulting binary file can be found in the <code>target/thumbv4t-none-eabi/release</code> directory.
+Depending on your platform, the file will have either a <code>.elf</code> extension or no extension.</p>
+<h2 id="3-convert-the-binary-to-a-gba-file"><a class="header" href="#3-convert-the-binary-to-a-gba-file">3. Convert the binary to a GBA file</a></h2>
+<p>In order to run the game on an emulator, we need to convert the binary file to a GBA file.
+To do this, we'll use the tool <code>agb-gbafix</code>.</p>
+<p>Run the following command to convert the binary file to a GBA ROM:</p>
+<pre><code class="language-sh">agb-gbafix target/thumbv4t-none-eabi/release/template -o template.gba
 </code></pre>
 <p>or</p>
-<pre><code class="language-sh">arm-none-eabi-objcopy -O binary target/thumbv4t-none-eabi/release/template.elf template.gba
-gbafix template.gba
+<pre><code class="language-sh">agb-gbafix target/thumbv4t-none-eabi/release/template.elf -o template.gba
 </code></pre>
-<p>And then load the resulting file in your emulator of choice.
-That's all there is to it!</p>
-<p>If you have <code>mgba-qt</code> in your path, then you can launch the template directly using <code>cargo run --release</code>.</p>
+<p>This command will add the correct GBA header to the template.gba file and it will be playable on real hardware or an emulator.</p>
+<h2 id="4-run-the-game"><a class="header" href="#4-run-the-game">4. Run the game</a></h2>
+<p>Finally, you can run the game on your emulator of choice.
+Load the template.gba file in your emulator, and you should see the agb template running.</p>
+<p>If you have mgba-qt installed on your machine, you can run the game directly from the command line using the following command:</p>
+<pre><code class="language-sh">cargo run --release
+</code></pre>
+<p>This will build and run the agb template in a single step.</p>
+<p>That's it! You now have a working agb template that you can use as a starting point for your own GBA game.</p>
 
                     </main>
 

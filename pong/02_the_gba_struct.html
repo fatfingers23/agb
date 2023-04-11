@@ -137,11 +137,13 @@
                         <h1 id="the-gba-struct"><a class="header" href="#the-gba-struct">The Gba struct</a></h1>
 <p>In this section, we'll cover the importance of the Gba struct and how it gets created for you.</p>
 <h1 id="the-importance-of-the-gba-struct"><a class="header" href="#the-importance-of-the-gba-struct">The importance of the Gba struct</a></h1>
-<p>Almost all interaction with the Game Boy Advance's hardware goes through the <a href="https://docs.rs/agb/latest/agb/struct.Gba.html">Gba singleton struct</a>.
-You should not create the Gba struct yourself, instead having it be passed into your main function.</p>
-<p>The Gba struct is used to take advantage of rust's borrow checker, and lean on it to ensure that access to the Game Boy Advance hardware is done 'sensibly'.
-You won't have to worry about 2 bits of your code modifying data in the wrong way!</p>
+<p>The <a href="https://docs.rs/agb/latest/agb/struct.Gba.html">Gba singleton struct</a> is a crucial part of agb game development.
+It is used for almost all interactions with the Game Boy Advance's hardware, such as graphics rendering, timer access and audio playback.</p>
+<p>You should not create the Gba struct yourself. Instead, it is passed to your main function as an owned reference.
+This allows rust's borrow checker to ensure that access to the Game Boy Advance hardware is done in a safe and sensible manner, preventing two bits of your code from modifying data in the wrong way.</p>
 <h1 id="how-all-agb-games-start"><a class="header" href="#how-all-agb-games-start">How all agb games start</a></h1>
+<p>To use the Gba struct in your agb game, you'll need to create a function (normally called <code>main</code>) which takes an owned reference to the Gba instance.
+The recommended way to do this is by using the <code>#[agb::entry]</code> attribute macro provided by the <code>agb</code> crate.</p>
 <p>Replace the content of the <code>main</code> function with the following:</p>
 <pre><code class="language-rust ignore"><span class="boring">#![no_std]
 </span><span class="boring">#![no_main]
@@ -150,13 +152,13 @@ You won't have to worry about 2 bits of your code modifying data in the wrong wa
 </span>loop {} // infinite loop for now
 <span class="boring">}
 </span></code></pre>
-<p>and ignore warnings for now.</p>
+<p>This creates an infinite loop and allows you to start building your game.</p>
 <h1 id="running-your-pong-game"><a class="header" href="#running-your-pong-game">Running your pong game</a></h1>
-<p>Although there isn't much to see at the moment (just a black screen), you can start the game by using <code>cargo run</code> or whatever worked for you in the introduction.</p>
-<h1 id="what-we-did"><a class="header" href="#what-we-did">What we did</a></h1>
-<p>This was a very simple but incredibly important part of any game using <code>agb</code>.
-All interactions with the hardware are gated via the Gba struct, which you never create yourself.</p>
-<p>You are now ready to learn about display modes and how to start getting things onto the screen!</p>
+<p>At this point, your game won't do much except display a black screen. To run your game, use the <code>cargo run</code> command as before.</p>
+<h1 id="what-we-covered"><a class="header" href="#what-we-covered">What we covered</a></h1>
+<p>In this section, we covered the importance of the Gba struct in agb game development.
+By using the Gba struct as a gatekeeper for all hardware interactions, you can ensure that your code is safe and efficient.
+You are now ready to learn about sprites and start getting things onto the screen!</p>
 
                     </main>
 

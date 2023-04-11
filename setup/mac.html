@@ -137,11 +137,11 @@
                         <h1 id="mac-setup"><a class="header" href="#mac-setup">Mac setup</a></h1>
 <p>This guide has been tested on MacOS 13.0.1 on an M1 chip.</p>
 <h1 id="1-install-a-recent-version-of-rust"><a class="header" href="#1-install-a-recent-version-of-rust">1. Install a recent version of rust</a></h1>
-<p>agb unfortunately relies on a few nightly rust features, so you need to ensure you have that installed.
+<p>To use agb, you'll need to use nightly rust since it requires a few nightly features.
 Firstly, ensure that you have <strong>rustup</strong> installed which you can do by following the instructions on the <a href="https://www.rust-lang.org/tools/install">rust website</a></p>
-<p>You can update rustup with <code>rustup update</code> if you have already installed it.</p>
+<p>If you have already installed rustup, you can update it with <code>rustup update</code>.</p>
 <h1 id="2-install-arm-none-eabi"><a class="header" href="#2-install-arm-none-eabi">2. Install arm-none-eabi</a></h1>
-<p>We need this installed in order to be able to assemble the small amount of assembly in agb, and to do the final linking.</p>
+<p>To assemble the small amount of assembly in agb and to do the final linking, you'll need to install the <code>arm-none-eabi</code> binutils.</p>
 <h2 id="install-from-arm"><a class="header" href="#install-from-arm">Install from ARM</a></h2>
 <p>Download the toolchain from <a href="https://developer.arm.com/downloads/-/gnu-rm">ARM here</a></p>
 <ul>
@@ -163,10 +163,10 @@ brew install arm-none-eabi-gcc
 <li>Inside the <code>/Applications/mGBA.app/Contents/MacOS</code> directory (in a terminal) run: <code>ln -s mGBA mgba-qt</code></li>
 </ul>
 <h1 id="5-real-hardware---gbafix"><a class="header" href="#5-real-hardware---gbafix">5. Real hardware - gbafix</a></h1>
-<p>In order to be able to play on real hardware or on some emulators, you may need to install 'gbafix'.
-The rust implementation can be installed very easily using <code>cargo install gbafix</code>.</p>
+<p>In order to be able to play games made with agb on real hardware or on some emulators, you will need to install 'agb-gbafix'.
+Agb's implementation can be installed very easily using <code>cargo install agb-gbafix</code>.</p>
 <p>Make sure that the Cargo bin directory is in your <code>PATH</code> as we'll need to use it later.</p>
-<p>That is all you need to get started.
+<p>That is all you need to get started!
 You can now move on to 'building the game'.</p>
 
                     </main>
