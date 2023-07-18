@@ -210,7 +210,7 @@ agb is guaranteed to work well using <a href="https://mgba.io/">mgba</a>, but ot
 See the later steps in this section for how to do this.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="environment-setup"><a class="header" href="#environment-setup">Environment setup</a></h1>
 <p>Environment setup will depend on the platform you are using.
-agb's requirements are <a href="https://www.rust-lang.org/">rust nightly</a> edition and the gnu binutils for <code>arm-none-eabi</code>.</p>
+You need to install the <a href="https://www.rust-lang.org/">rust nightly</a> edition along with (optionally) some additional tools.</p>
 <p>See the sub-pages here for platform specific setup guides.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="linux-setup"><a class="header" href="#linux-setup">Linux setup</a></h1>
 <p>This guide has been tested on Ubuntu, Arch Linux and Raspberry Pi OS running on a raspberry pi 4.</p>
@@ -218,19 +218,13 @@ agb's requirements are <a href="https://www.rust-lang.org/">rust nightly</a> edi
 <p>To use agb, you'll need to use nightly rust since it requires a few nightly features.
 Firstly, ensure that you have <strong>rustup</strong> installed which you can do by following the instructions on the <a href="https://www.rust-lang.org/tools/install">rust website</a></p>
 <p>If you have already installed rustup, you can update it with <code>rustup update</code>.</p>
-<h1 id="2-arm-none-eabi"><a class="header" href="#2-arm-none-eabi">2. arm-none-eabi</a></h1>
-<p>To assemble the small amount of assembly in agb and to do the final linking, you'll need to install the <code>arm-none-eabi</code> binutils.</p>
-<ul>
-<li>On Debian and derivatives (like Ubuntu): <code>sudo apt install binutils-arm-none-eabi</code></li>
-<li>On Arch Linux and derivatives: <code>pacman -S arm-none-eabi-binutils</code></li>
-</ul>
-<h1 id="3-git"><a class="header" href="#3-git">3. git</a></h1>
+<h1 id="2-git"><a class="header" href="#2-git">2. git</a></h1>
 <p>The source code for the game is hosted on github, so you will need to install git.</p>
 <ul>
 <li>On Debian and derivatives (like Ubuntu): <code>sudo apt install git</code></li>
 <li>On Arch Linux and derivatives: <code>pacman -S git</code></li>
 </ul>
-<h1 id="4-gbafix"><a class="header" href="#4-gbafix">4. gbafix</a></h1>
+<h1 id="3-gbafix"><a class="header" href="#3-gbafix">3. gbafix</a></h1>
 <p>In order to be able to play games made with agb on real hardware or on some emulators, you will need to install 'agb-gbafix'.
 Agb's implementation can be installed very easily using <code>cargo install agb-gbafix</code>.</p>
 <p>Make sure that the Cargo bin directory is in your <code>PATH</code> as we'll need to use it later.</p>
@@ -242,29 +236,16 @@ You can now move on to 'building the game'.</p>
 <p>To use agb, you'll need to use nightly rust since it requires a few nightly features.
 Firstly, ensure that you have <strong>rustup</strong> installed which you can do by following the instructions on the <a href="https://www.rust-lang.org/tools/install">rust website</a></p>
 <p>If you have already installed rustup, you can update it with <code>rustup update</code>.</p>
-<h1 id="2-install-arm-none-eabi"><a class="header" href="#2-install-arm-none-eabi">2. Install arm-none-eabi</a></h1>
-<p>To assemble the small amount of assembly in agb and to do the final linking, you'll need to install the <code>arm-none-eabi</code> binutils.</p>
-<h2 id="install-from-arm"><a class="header" href="#install-from-arm">Install from ARM</a></h2>
-<p>Download the toolchain from <a href="https://developer.arm.com/downloads/-/gnu-rm">ARM here</a></p>
-<ul>
-<li>Run the .pkg to install</li>
-<li>Add <code>/Applications/ARM/bin</code> to your <code>/etc/paths</code> file</li>
-</ul>
-<h2 id="install-from-homebrew"><a class="header" href="#install-from-homebrew">Install from Homebrew</a></h2>
-<p>Or you can try installing with homebrew from the <a href="https://github.com/ARMmbed/homebrew-formulae">Arm Mbed repo</a>:</p>
-<pre><code>brew tap ArmMbed/homebrew-formulae
-brew install arm-none-eabi-gcc
-</code></pre>
-<h1 id="3-get-git"><a class="header" href="#3-get-git">3. Get git</a></h1>
+<h1 id="2-get-git"><a class="header" href="#2-get-git">2. Get git</a></h1>
 <p>The source code for the game is hosted on github, so you will need git installed. Follow the instructions at <a href="https://git-scm.com/">git-scm.com</a></p>
-<h1 id="4-gba-emulator---mgba"><a class="header" href="#4-gba-emulator---mgba">4. GBA Emulator - mGBA</a></h1>
+<h1 id="3-gba-emulator---mgba"><a class="header" href="#3-gba-emulator---mgba">3. GBA Emulator - mGBA</a></h1>
 <p>We recommend using the mGBA emulator which you can download for Mac <a href="https://mgba.io/downloads.html">here</a>.</p>
 <p>After installing to your <code>/Applications</code> folder you can add the binary to your path and create an alias for the agb run command to use.</p>
 <ul>
 <li>Add <code>/Applications/mGBA.app/Contents/MacOS</code> to <code>/etc/paths</code></li>
 <li>Inside the <code>/Applications/mGBA.app/Contents/MacOS</code> directory (in a terminal) run: <code>ln -s mGBA mgba-qt</code></li>
 </ul>
-<h1 id="5-real-hardware---gbafix"><a class="header" href="#5-real-hardware---gbafix">5. Real hardware - gbafix</a></h1>
+<h1 id="4-real-hardware---gbafix"><a class="header" href="#4-real-hardware---gbafix">4. Real hardware - gbafix</a></h1>
 <p>In order to be able to play games made with agb on real hardware or on some emulators, you will need to install 'agb-gbafix'.
 Agb's implementation can be installed very easily using <code>cargo install agb-gbafix</code>.</p>
 <p>Make sure that the Cargo bin directory is in your <code>PATH</code> as we'll need to use it later.</p>
